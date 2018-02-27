@@ -27,6 +27,7 @@ bot.on('new_chat_members', (msg)=> {
     const { first_name, last_name, username } = msg.new_chat_member;
     const name = username ? username : `${first_name} ${last_name}`;
     const greeting = `Добро пожаловать, [${name}](tg://user?id=${msg.new_chat_member.id})!
+
 ${greetingPart}`;
     bot.sendMessage(msg.chat.id, greeting, {parse_mode:'Markdown'});
 })
