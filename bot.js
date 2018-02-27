@@ -21,9 +21,7 @@ const bot = new TelegramBot(TOKEN, options);
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-const greetingPart = process.env.GREETING || `Спасибо, что ты с нами! Расскажи, откуда знаешь о подкасте?
-
-И не стесняйся, твое первое сообщение само себя не напишет 🎲`;
+const greetingPart = process.env.GREETING || `Спасибо, что ты с нами. Мы так давно тебя ждали! 🎲`;
 
 bot.on('new_chat_members', (msg)=> {
     const { first_name, last_name, username } = msg.new_chat_member;
