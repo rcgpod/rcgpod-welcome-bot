@@ -1,4 +1,4 @@
-const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
+const TOKEN = process.env.TELEGRAM_TOKEN || '527067945:AAE2f9C-1gAE0iwJsB0ez7bBv1FNi6Zvx1I';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
     webHook: {
@@ -14,7 +14,7 @@ const options = {
 // Add URL of your app to env variable or enable Dyno Metadata
 // to get this automatically
 // See: https://devcenter.heroku.com/articles/dyno-metadata
-const url = process.env.APP_URL || 'https://<app-name>.herokuapp.com:443';
+const url = process.env.APP_URL || 'https://rcgpod-welcome-bot.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
 // This informs the Telegram servers of the new webhook.
