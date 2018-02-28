@@ -23,7 +23,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 //const greetingPart = process.env.GREETING || `Спасибо, что ты с нами. Мы так давно тебя ждали! 🎲`;
 var greetingParts = [`Спасибо, что ты с нами. Мы так давно тебя ждали! 🎲`,`Располагайся поудобнее. И не стесняйся, твоё первое сообщение само себя не напишет 😉`,`Добро пожаловать! Рады тебя здесь видеть ❤️`,`Спасибо, что ты с нами! Если хочешь, можешь рассказать немного о себе, но это необязательно 😊`,`Здорово, что ты с нами! Рады новому собеседнику 🙃`];
-var greetingPart = process.env.GREETING || greetingParts[Math.floor(Math.random() * greetingParts.length)];
+const greetingPart = process.env.GREETING || greetingParts[Math.floor(Math.random() * greetingParts.length)];
 
 bot.on('new_chat_members', (msg)=> {
     const { first_name, last_name, username } = msg.new_chat_member;
