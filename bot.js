@@ -1,4 +1,4 @@
-const TOKEN = process.env.TELEGRAM_TOKEN || '527067945:AAE2f9C-1gAE0iwJsB0ez7bBv1FNi6Zvx1I';
+const TOKEN = process.env.TELEGRAM_TOKEN || '554993857:AAFmayNVU7_N-S2lhn1I3CS2RqA97NRQ3IE';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
     webHook: {
@@ -14,20 +14,25 @@ const options = {
 // Add URL of your app to env variable or enable Dyno Metadata
 // to get this automatically
 // See: https://devcenter.heroku.com/articles/dyno-metadata
-const url = process.env.APP_URL || 'https://rcgpod-welcome-bot.herokuapp.com:443';
+const url = process.env.APP_URL || 'https://rcgpod-test-bot.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
 // This informs the Telegram servers of the new webhook.
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-const greetingPart = process.env.GREETING || `Спасибо, что ты с нами. Мы так давно тебя ждали! 🎲`;
+//const greetingPart = process.env.GREETING || `Спасибо, что ты с нами. Мы так давно тебя ждали! 🎲`;
 //var greetingParts = [`Спасибо, что ты с нами. Мы так давно тебя ждали! 🎲`,`Располагайся поудобнее. И не стесняйся, твоё первое сообщение само себя не напишет 😉`,`Добро пожаловать! Рады тебя здесь видеть ❤️`,`Спасибо, что ты с нами! Если хочешь, можешь рассказать немного о себе, но это необязательно 😊`,`Здорово, что ты с нами! Рады новому собеседнику 🙃`];
 //const greetingPart = process.env.GREETING || greetingParts[Math.floor(Math.random() * greetingParts.length)];
+
+var greetingParts = ['Спасибо, что ты с нами. Мы так давно тебя ждали! 😊','privet2','privet 3','privet 4','privet 5'];
 
 bot.on('new_chat_members', (msg)=> {
     const { first_name, last_name, username } = msg.new_chat_member;
     const name = username ? username : `${first_name} ${last_name}`;
+    
+    var greetingPart = greetingParts[Math.floor(Math.random() * greetingParts.length)];
+    
     const greeting = `Добро пожаловать, [${name}](tg://user?id=${msg.new_chat_member.id})! 🙌🏼
 
 ${greetingPart}`;
